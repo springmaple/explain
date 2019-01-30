@@ -2,8 +2,13 @@ import sys
 import time
 from datetime import datetime
 
-token = sys.argv[1]
-ts = int(token)
+token = str(sys.argv[1]).lower().strip()
+
+if token == 'now':
+    ts = int(time.time())
+    print('Epoch: ' + str(ts))
+else:
+    ts = int(token)
 
 dt_format = '%a, %d %b %Y %H:%M:%S '
 dt_utc = datetime.utcfromtimestamp(ts)
